@@ -5,21 +5,21 @@ services:
 
 
 before_install:
-  - docker build -t ary/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t arvind412/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true ary/react-test npm test -- --coverage
+  - docker run -e CI=true arvind412/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t ary/multi-client ./client
-  - docker build -t ary/multi-nginx ./nginx
-  - docker build -t ary/multi-server ./server
-  - docker build -t ary/multi-worker ./worker
+  - docker build -t arvind412/multi-client ./client
+  - docker build -t arvind412/multi-nginx ./nginx
+  - docker build -t arvind412/multi-server ./server
+  - docker build -t arvind412/multi-worker ./worker
 
   # Take all images and push to docker hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   
-  - docker push ary/multi-client
-  - docker push ary/multi-nginx
-  - docker push ary/multi-server
-  - docker push ary/multi-worker
+  - docker push arvind412/multi-client
+  - docker push arvind412/multi-nginx
+  - docker push arvind412/multi-server
+  - docker push arvind412/multi-worker
