@@ -24,7 +24,7 @@
     },
     { 
       "name": "nginx",
-      "image": "arvind412/multi-nginx",
+      "image": "arvind412 / multi-nginx",
       "hostname": "nginx",
       "essential": true,
       "portMappings": [
